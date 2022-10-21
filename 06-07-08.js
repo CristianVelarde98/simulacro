@@ -1,3 +1,5 @@
+const { Linter } = require("eslint");
+
 /* 
   Importante: 
   No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
@@ -11,6 +13,10 @@ function crearClasePersona() {
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
+      this.nombre = nombre;
+      this.edad = edad;
+      this.hobbies = hobbies;
+      this.amigos = amigos
 
     }
 
@@ -18,16 +24,19 @@ function crearClasePersona() {
       // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // No debe retornar nada.
-
       // Tu código aca:
+      var NuevoAmigo = {nombre: nombre, edad: edad};
+      this.amigos.push(NuevoAmigo);
 
-    }
+     }
 
     addHobby(hobby) {
       // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
       // No debe retornar nada.
 
       // Tu código aca:
+      
+      this.hobbies.push(hobby);
 
     }
     getFriends() {
@@ -38,6 +47,11 @@ function crearClasePersona() {
       // persona.getFriends() debería devolver ['martin', 'toni']
 
       // Tu código aca:
+      var listaNombres = [];
+      for (var i = 0; i < this.amigos.length; i++) {
+        listaNombres.push(this.amigos[i]["nombre"]);
+      }
+      return listaNombres;
 
     }
 
@@ -47,7 +61,7 @@ function crearClasePersona() {
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
 
       // Tu código aca:
-
+      return this.hobbies;
     }
 
     getPromedioEdad() {
@@ -66,6 +80,12 @@ function crearClasePersona() {
       // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
 
       // Tu código aca:
+      var AñosT = 0;
+      
+      for (var i = 0; i < this.amigos.length; i++) {
+        AñosT = AñosT + this.amigos[i]["edad"];
+      }
+      return AñosT / this.amigos.length;
 
     }
   };

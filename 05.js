@@ -12,9 +12,13 @@ function pluck(array, propiedad) {
   // var productos = [{ name: 'TV LCD', price: 100}, { name: 'Computadora', price: 500 }]
   // productos.pluck(productos, 'name') debería devolver ['TV LCD', 'Computadora']
   // Pista: es una buena oportunidad para usar map.
-
-  // Tu código acá:
-
+  var NuevoArray = [];
+  for ( var i = 0; i < array.length; i++) {
+    NuevoArray.push(array[i][propiedad]);
+  }
+  
+  return NuevoArray;
+  
 }
 
 // No modifiques nada debajo de esta linea //
